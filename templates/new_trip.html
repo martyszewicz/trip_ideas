@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block page_body %}
+
+<div class="container" style="margin-top: 10px">
+  <form action="{{ url_for('new_trip') }}" method="POST" >
+  <div class="row">
+    <div class="col-2">
+        <div class="mb-3" >
+          <label for="name" class="form-label">Nazwa wycieczki</label>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Adres email</label>
+        </div>
+        <div class="mb-3">
+          <label for="description" class="form-label">Opis wycieczki</label>
+        </div>
+    </div>
+    <div class="col-8">
+        <div class="mb-3" >
+          <input type="text" class="form-control" id="name" name="trip_name" placeholder="Podaj nazwę wycieczki" required>
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" id="email" name="email" placeholder="Podaj adres email, np XYZ@gmail.com" required>
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+        </div>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-2">
+          <fieldset class="row mb-3">
+            <legend class="col-form-label">Czy wycieczka została wyceniona?</legend>
+          </fieldset>
+      </div>
+      <div class="col-8">
+            <div class="col-sm-10" style="margin-top: 10px">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="completness" id="completness1" value="1" checked>
+                <label class="form-check-label" for="completness1">
+                  Tak, wycieczka zawiera wycenę wszystkich kosztów
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="completness" id="completness2" value="0">
+                <label class="form-check-label" for="completness2">
+                  Nie, to tylko pomysł
+                </label>
+              </div>
+            </div>
+
+      </div>
+  </div>
+  <div class="row">
+      <div class="col-2">
+          <fieldset class="row mb-3">
+            <legend class="col-form-label">Czy wyrażasz zgodę na kontakt mailowy?</legend>
+          </fieldset>
+          <div><input class="btn btn-primary btn-sm" type="submit" name="submit_button" value="Wyślij" style="margin: 10px"></div>
+      </div>
+      <div class="col-8">
+            <div class="form-check" style="margin-top:10px">
+              <input class="form-check-input" type="checkbox" name="contact_ok" id="contact_ok" value="1">
+                  <label class="form-check-label" for="contact_ok">
+                    Tak, wyrażam zgodę
+                  </label>
+            </div>
+      </div>
+  </div>
+  </form>
+</div>
+
+
+
+{% endblock %}

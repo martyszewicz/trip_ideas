@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %} Trip ideas {% endblock %}
+{% block page_body %}
+
+<div class="container">
+  <div class="row">
+    <div class="col" >
+        <form action='{{ url_for("checking_trip") }}' method="POST">
+          <h1 style="margin-top: 10px">Znajdź wycieczkę dla siebie!</h1>
+          <h3 style="margin-top: 10px">Wybierz nazwę wycieczki:</h3>
+            <select name="checking_trip" class="form-select" aria-label="Default select example" style="margin-top: 10px">
+                {% for trip in list_of_trips %}
+                    <option name="trip" id="trip" value="{{ trip.trip_name }}">{{ trip.trip_name }}</option>
+                {% endfor %}
+            </select>
+            <div style="margin-top: 10px"><button type="submit" class="btn btn-primary">Zatwierdź</button></div>
+        </form>
+    </div>
+    <div class="col">
+      {% include "carousel.html" %}
+    </div>
+  </div>
+</div>
+
+ {% endblock %}
+
+
